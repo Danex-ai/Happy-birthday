@@ -1,627 +1,405 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>OLUWATOSIN💕 Birthday Countdown</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&display=swap" rel="stylesheet">
+<title>OLUWATOSIN💕 Birthday Countdown</title>
 
-  <style>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&display=swap" rel="stylesheet">
 
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-    }
+<style>
 
-    body{
-      font-family:'Orbitron', sans-serif;
-      height:100vh;
-      overflow:hidden;
-      background:#050816;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      color:white;
-      position:relative;
-    }
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
 
-    /* Animated Neon Background */
+body{
+  font-family:'Orbitron', sans-serif;
+  min-height:100vh;
+  overflow-x:hidden;
+  background:#050816;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  color:white;
+  position:relative;
+  padding:20px;
+}
 
-    body::before{
-      content:"";
-      position:absolute;
-      width:800px;
-      height:800px;
-      background:radial-gradient(circle,#00f7ff33,transparent 70%);
-      top:-250px;
-      left:-250px;
-      animation:moveGlow1 7s infinite alternate;
-    }
+/* NEON BACKGROUND */
 
-    body::after{
-      content:"";
-      position:absolute;
-      width:800px;
-      height:800px;
-      background:radial-gradient(circle,#ff00ea33,transparent 70%);
-      bottom:-250px;
-      right:-250px;
-      animation:moveGlow2 7s infinite alternate;
-    }
+body::before{
+  content:"";
+  position:absolute;
+  width:800px;
+  height:800px;
+  background:radial-gradient(circle,#00f7ff33,transparent 70%);
+  top:-250px;
+  left:-250px;
+  animation:moveGlow1 7s infinite alternate;
+}
 
-    @keyframes moveGlow1{
-      from{transform:translate(0,0);}
-      to{transform:translate(120px,80px);}
-    }
+body::after{
+  content:"";
+  position:absolute;
+  width:800px;
+  height:800px;
+  background:radial-gradient(circle,#ff00ea33,transparent 70%);
+  bottom:-250px;
+  right:-250px;
+  animation:moveGlow2 7s infinite alternate;
+}
 
-    @keyframes moveGlow2{
-      from{transform:translate(0,0);}
-      to{transform:translate(-120px,-80px);}
-    }
+@keyframes moveGlow1{
+  from{transform:translate(0,0);}
+  to{transform:translate(120px,80px);}
+}
 
-    /* Main Container */
+@keyframes moveGlow2{
+  from{transform:translate(0,0);}
+  to{transform:translate(-120px,-80px);}
+}
 
-    .container{
-      width:92%;
-      max-width:1300px;
-      padding:40px;
-      border-radius:35px;
-      background:rgba(255,255,255,0.06);
-      backdrop-filter:blur(20px);
-      border:1px solid rgba(255,255,255,0.08);
-      box-shadow:
-        0 0 25px rgba(0,255,255,0.25),
-        0 0 60px rgba(255,0,234,0.18);
-      position:relative;
-      z-index:10;
-    }
+/* MAIN CONTAINER */
 
-    .content{
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      gap:50px;
-      flex-wrap:wrap;
-    }
+.container{
+  width:100%;
+  max-width:1300px;
+  padding:40px;
+  border-radius:35px;
+  background:rgba(255,255,255,0.06);
+  backdrop-filter:blur(20px);
+  border:1px solid rgba(255,255,255,0.08);
+  box-shadow:
+    0 0 25px rgba(0,255,255,0.25),
+    0 0 60px rgba(255,0,234,0.18);
+  position:relative;
+  z-index:10;
+}
 
-    /* SLIDESHOW */
+.content{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:50px;
+  flex-wrap:wrap;
+}
 
-    .slideshow-container{
-      width:340px;
-      height:470px;
-      border-radius:30px;
-      overflow:hidden;
-      position:relative;
-      padding:8px;
-      background:linear-gradient(135deg,#00f7ff,#ff00ea);
-      box-shadow:
-        0 0 25px #00f7ff,
-        0 0 45px #ff00ea;
-      animation:pulse 3s infinite;
-    }
+/* SLIDESHOW */
 
-    @keyframes pulse{
-      0%{transform:scale(1);}
-      50%{transform:scale(1.02);}
-      100%{transform:scale(1);}
-    }
+.slideshow-container{
+  width:340px;
+  height:470px;
+  border-radius:30px;
+  overflow:hidden;
+  position:relative;
+  padding:8px;
+  background:linear-gradient(135deg,#00f7ff,#ff00ea);
+  box-shadow:
+    0 0 25px #00f7ff,
+    0 0 45px #ff00ea;
+  animation:pulse 3s infinite;
+}
 
-    .slides{
-      width:100%;
-      height:100%;
-      position:relative;
-      border-radius:25px;
-      overflow:hidden;
-      background:#111827;
-    }
+@keyframes pulse{
+  0%{transform:scale(1);}
+  50%{transform:scale(1.02);}
+  100%{transform:scale(1);}
+}
 
-    .slides img{
-      position:absolute;
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      opacity:0;
-      animation:slideShow 55s infinite;
-    }
+.slides{
+  width:100%;
+  height:100%;
+  position:relative;
+  border-radius:25px;
+  overflow:hidden;
+  background:#111827;
+}
 
-    /* 11 IMAGES */
+.slides img{
+  position:absolute;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  opacity:0;
+  animation:slideShow 55s infinite;
+}
 
-    .slides img:nth-child(1){animation-delay:0s;}
-    .slides img:nth-child(2){animation-delay:5s;}
-    .slides img:nth-child(3){animation-delay:10s;}
-    .slides img:nth-child(4){animation-delay:15s;}
-    .slides img:nth-child(5){animation-delay:20s;}
-    .slides img:nth-child(6){animation-delay:25s;}
-    .slides img:nth-child(7){animation-delay:30s;}
-    .slides img:nth-child(8){animation-delay:35s;}
-    .slides img:nth-child(9){animation-delay:40s;}
-    .slides img:nth-child(10){animation-delay:45s;}
-    .slides img:nth-child(11){animation-delay:50s;}
+/* IMAGE DELAYS */
 
-    @keyframes slideShow{
+.slides img:nth-child(1){animation-delay:0s;}
+.slides img:nth-child(2){animation-delay:5s;}
+.slides img:nth-child(3){animation-delay:10s;}
+.slides img:nth-child(4){animation-delay:15s;}
+.slides img:nth-child(5){animation-delay:20s;}
+.slides img:nth-child(6){animation-delay:25s;}
+.slides img:nth-child(7){animation-delay:30s;}
+.slides img:nth-child(8){animation-delay:35s;}
+.slides img:nth-child(9){animation-delay:40s;}
+.slides img:nth-child(10){animation-delay:45s;}
+.slides img:nth-child(11){animation-delay:50s;}
 
-      0%{
-        opacity:0;
-        transform:scale(1.08);
-      }
+@keyframes slideShow{
 
-      5%{
-        opacity:1;
-      }
+  0%{
+    opacity:0;
+    transform:scale(1.1);
+  }
 
-      15%{
-        opacity:1;
-        transform:scale(1);
-      }
+  5%{
+    opacity:1;
+  }
 
-      20%{
-        opacity:0;
-      }
+  15%{
+    opacity:1;
+    transform:scale(1);
+  }
 
-      100%{
-        opacity:0;
-      }
+  20%{
+    opacity:0;
+  }
 
-    }
+  100%{
+    opacity:0;
+  }
+}
 
-    /* RIGHT SIDE */
+/* COUNTDOWN SIDE */
 
-    .countdown-section{
-      flex:1;
-      min-width:320px;
-    }
+.countdown-section{
+  flex:1;
+  min-width:320px;
+}
 
-    .title{
-      font-size:3.5rem;
-      line-height:1.1;
-      margin-bottom:15px;
-      text-transform:uppercase;
-      text-shadow:
-        0 0 10px #00f7ff,
-        0 0 20px #00f7ff,
-        0 0 40px #ff00ea;
-    }
+.title{
+  font-size:3.5rem;
+  line-height:1.1;
+  margin-bottom:15px;
+  text-transform:uppercase;
+  text-shadow:
+    0 0 10px #00f7ff,
+    0 0 20px #00f7ff,
+    0 0 40px #ff00ea;
+}
 
-    .subtitle{
-      color:#d1d5db;
-      margin-bottom:40px;
-      letter-spacing:3px;
-      font-size:1rem;
-    }
+.subtitle{
+  color:#d1d5db;
+  margin-bottom:40px;
+  letter-spacing:3px;
+  font-size:1rem;
+}
 
-    /* COUNTDOWN */
+/* COUNTDOWN BOXES */
 
-    .countdown{
-      display:grid;
-      grid-template-columns:repeat(4,1fr);
-      gap:18px;
-    }
+.countdown{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:18px;
+}
 
-    .time-box{
-      background:rgba(255,255,255,0.06);
-      border:1px solid rgba(255,255,255,0.08);
-      padding:25px 10px;
-      border-radius:22px;
-      text-align:center;
-      transition:0.3s;
-      box-shadow:
-        inset 0 0 12px rgba(255,255,255,0.03),
-        0 0 12px rgba(0,255,255,0.08);
-    }
+.time-box{
+  background:rgba(255,255,255,0.06);
+  border:1px solid rgba(255,255,255,0.08);
+  padding:25px 10px;
+  border-radius:22px;
+  text-align:center;
+  transition:0.3s;
+  box-shadow:
+    inset 0 0 12px rgba(255,255,255,0.03),
+    0 0 12px rgba(0,255,255,0.08);
+}
 
-    .time-box:hover{
-      transform:translateY(-8px);
-      box-shadow:
-        0 0 20px rgba(0,255,255,0.45),
-        0 0 35px rgba(255,0,234,0.25);
-    }
+.time-box:hover{
+  transform:translateY(-8px);
+  box-shadow:
+    0 0 20px rgba(0,255,255,0.45),
+    0 0 35px rgba(255,0,234,0.25);
+}
 
-    .time{
-      font-size:2.7rem;
-      font-weight:700;
-      text-shadow:
-        0 0 10px #00f7ff,
-        0 0 20px #ff00ea;
-    }
+.time{
+  font-size:2.7rem;
+  font-weight:700;
+  text-shadow:
+    0 0 10px #00f7ff,
+    0 0 20px #ff00ea;
+}
 
-    .label{
-      margin-top:10px;
-      font-size:0.85rem;
-      letter-spacing:2px;
-      color:#cbd5e1;
-    }
+.label{
+  margin-top:10px;
+  font-size:0.85rem;
+  letter-spacing:2px;
+  color:#cbd5e1;
+}
 
-    /* Birthday Message */
+/* BIRTHDAY MESSAGE */
 
-    .birthday-message{
-      margin-top:40px;
-      font-size:2.3rem;
-      display:none;
-      text-shadow:
-        0 0 10px #00f7ff,
-        0 0 20px #ff00ea;
-    }
+.birthday-message{
+  margin-top:40px;
+  font-size:2.3rem;
+  display:none;
+  text-shadow:
+    0 0 10px #00f7ff,
+    0 0 20px #ff00ea;
+}
 
-    /* Responsive */
+/* RESPONSIVE */
 
-    @media(max-width:950px){
+@media(max-width:950px){
 
-      body{
-        overflow:auto;
-        padding:20px 0;
-      }
+  .content{
+    flex-direction:column;
+  }
 
-      .content{
-        flex-direction:column;
-      }
+  .countdown{
+    grid-template-columns:repeat(2,1fr);
+  }
 
-      .countdown{
-        grid-template-columns:repeat(2,1fr);
-      }
+  .title{
+    text-align:center;
+    font-size:2.6rem;
+  }
 
-      .title{
-        text-align:center;
-        font-size:2.6rem;
-      }
+  .subtitle{
+    text-align:center;
+  }
 
-      .subtitle{
-        text-align:center;
-      }
+  .slideshow-container{
+    width:100%;
+    max-width:340px;
+  }
+}
 
-    }
-
-  </style>
+</style>
 </head>
 
 <body>
 
-  <div class="container">
+<div class="container">
 
-    <div class="content">
+<div class="content">
 
-      <!-- SLIDESHOW -->
-      <div class="slideshow-container">
+<!-- SLIDESHOW -->
+<div class="slideshow-container">
 
-        <div class="slides">
+<div class="slides">
 
-          <!-- REPLACE THESE WITH YOUR 11 PHOTOS -->
+<!-- REPLACE WITH YOUR REAL IMAGES -->
 
-          <img src="celebrant.jpg" alt="">
-          <img src="image1.jpg" alt="">
-          <img src="image2.jpg" alt="">
-          <img src="imqge3.jpg" alt="">
-          <img src="image4.jpg" alt="">
-          <img src="image5.jpg" alt="">
-          <img src="image6.jpg" alt="">
-          <img src="image7.jpg" alt="">
-          <img src="image8.jpg" alt="">
-          <img src="image9.jpg" alt="">
-          <img src="image10.jpg" alt="">
+<img src="celebrant.jpg" alt="">
+<img src="image1.jpg" alt="">
+<img src="image2.jpg" alt="">
+<img src="image3.jpg" alt="">
+<img src="image4.jpg" alt="">
+<img src="image5.jpg" alt="">
+<img src="image6.jpg" alt="">
+<img src="image7.jpg" alt="">
+<img src="image8.jpg" alt="">
+<img src="image9.jpg" alt="">
+<img src="image10.jpg" alt="">
 
-        </div>
+</div>
+</div>
 
-      </div>
+<!-- COUNTDOWN -->
 
-      <!-- COUNTDOWN -->
-      <div class="countdown-section">
+<div class="countdown-section">
 
-        <h1 class="title">
-          OLUWATOSIN💕<br>
-          Birthday Countdown
-        </h1>
+<h1 class="title">
+OLUWATOSIN💕<br>
+Birthday Countdown
+</h1>
 
-        <p class="subtitle">
-          COUNTING DOWN TO MAY 27 🎂
-        </p>
+<p class="subtitle">
+COUNTING DOWN TO MAY 27 🎂
+</p>
 
-        <div class="countdown">
+<div class="countdown">
 
-          <div class="time-box">
-            <div class="time" id="days">00</div>
-            <div class="label">DAYS</div>
-          </div>
+<div class="time-box">
+<div class="time" id="days">00</div>
+<div class="label">DAYS</div>
+</div>
 
-          <div class="time-box">
-            <div class="time" id="hours">00</div>
-            <div class="label">HOURS</div>
-          </div>
+<div class="time-box">
+<div class="time" id="hours">00</div>
+<div class="label">HOURS</div>
+</div>
 
-          <div class="time-box">
-            <div class="time" id="minutes">00</div>
-            <div class="label">MINUTES</div>
-          </div>
+<div class="time-box">
+<div class="time" id="minutes">00</div>
+<div class="label">MINUTES</div>
+</div>
 
-          <div class="time-box">
-            <div class="time" id="seconds">00</div>
-            <div class="label">SECONDS</div>
-          </div>
+<div class="time-box">
+<div class="time" id="seconds">00</div>
+<div class="label">SECONDS</div>
+</div>
 
-        </div>
+</div>
 
-        <div class="birthday-message" id="birthdayMessage">
-          🎉 HAPPY BIRTHDAY OLUWATOSIN💕IN ADVANCE 🎂 
-        </div>
+<div class="birthday-message" id="birthdayMessage">
+🎉 HAPPY BIRTHDAY OLUWATOSIN💕 🎂
+</div>
 
-      </div>
+</div>
+</div>
+</div>
 
-    </div>
-
-  </div>
+<script>
 
-  <script>
-
-    // BIRTHDAY DATE
-    const birthday = new Date("May 27, 2026 00:00:00").getTime();
-
-    const countdown = setInterval(() => {
-
-      const now = new Date().getTime();
-      const distance = birthday - now;
-
-      // TIME CALCULATIONS
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-
-      const hours = Math.floor(
-        (distance % (1000 * 60 * 60 * 24)) /
-        (1000 * 60 * 60)
-      );
-
-      const minutes = Math.floor(
-        (distance % (1000 * 60 * 60)) /
-        (1000 * 60)
-      );
-
-      const seconds = Math.floor(
-        (distance % (1000 * 60)) / 1000
-      );
-
-      // DISPLAY
-      document.getElementById("days").innerHTML = days;
-      document.getElementById("hours").innerHTML = hours;
-      document.getElementById("minutes").innerHTML = minutes;
-      document.getElementById("seconds").innerHTML = seconds;
-
-      // WHEN COUNTDOWN ENDS
-      if(distance < 0){
-
-        clearInterval(countdown);
-
-        document.querySelector(".countdown").style.display = "none";
-
-        document.getElementById("birthdayMessage").style.display = "block";
-      }
-
-    },1000);
-
-  </script>
-
-</body>
-</html>    }
-
-    .photo-inner img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-    }
-
-    /* Replace with celebrant image */
-    .photo-placeholder{
-      width:100%;
-      height:100%;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      color:#00f7ff;
-      font-size:1.2rem;
-      text-align:center;
-      padding:20px;
-    }
-
-    /* Countdown Section */
-    .countdown-section{
-      flex:1;
-      min-width:320px;
-    }
-
-    .title{
-      font-size:3.2rem;
-      margin-bottom:10px;
-      text-transform:uppercase;
-      line-height:1.1;
-      text-shadow:
-        0 0 10px #00f7ff,
-        0 0 20px #00f7ff;
-    }
-
-    .subtitle{
-      color:#d1d5db;
-      margin-bottom:35px;
-      font-size:1rem;
-      letter-spacing:2px;
-    }
-
-    .countdown{
-      display:grid;
-      grid-template-columns:repeat(4,1fr);
-      gap:18px;
-    }
-
-    .time-box{
-      padding:25px 10px;
-      border-radius:22px;
-      background:rgba(255,255,255,0.07);
-      border:1px solid rgba(255,255,255,0.08);
-      text-align:center;
-      transition:0.3s ease;
-      box-shadow:
-        inset 0 0 10px rgba(255,255,255,0.05),
-        0 0 15px rgba(0,255,255,0.08);
-    }
-
-    .time-box:hover{
-      transform:translateY(-6px);
-      box-shadow:
-        0 0 20px rgba(0,255,255,0.4),
-        0 0 30px rgba(255,0,255,0.2);
-    }
-
-    .time{
-      font-size:2.5rem;
-      font-weight:700;
-      color:#fff;
-      text-shadow:
-        0 0 10px #00f7ff,
-        0 0 20px #ff00ea;
-    }
-
-    .label{
-      margin-top:10px;
-      font-size:0.85rem;
-      letter-spacing:2px;
-      color:#cbd5e1;
-    }
-
-    .birthday-message{
-      margin-top:40px;
-      font-size:2rem;
-      color:#fff;
-      display:none;
-      text-shadow:
-        0 0 10px #00f7ff,
-        0 0 20px #ff00ea;
-    }
-
-    /* Responsive */
-    @media(max-width:900px){
-
-      .content{
-        flex-direction:column;
-      }
-
-      .countdown{
-        grid-template-columns:repeat(2,1fr);
-      }
-
-      .title{
-        font-size:2.4rem;
-        text-align:center;
-      }
-
-      .subtitle{
-        text-align:center;
-      }
-    }
-
-  </style>
-</head>
-
-<body>
-
-  <div class="container">
-
-    <div class="content">
-
-      <!-- PHOTO HOLDER -->
-      <div class="photo-card">
-        <div class="photo-inner">
-
-          <!-- PUT IMAGE HERE -->
-          <!-- Replace celebrant.jpg with your image -->
-
-          <img src="celebrant.jpg" alt="Birthday Celebrant">
-
-          <!-- If no image use this -->
-          <!--
-          <div class="photo-placeholder">
-            ADD<br>CELEBRANT<br>PHOTO
-          </div>
-          -->
-
-        </div>
-      </div>
-
-      <!-- COUNTDOWN -->
-      <div class="countdown-section">
-
-        <h1 class="title">
-          Birthday Countdown 🎂
-        </h1>
-
-        <p class="subtitle">
-          COUNTING DOWN TO MAY 27
-        </p>
-
-        <div class="countdown">
-
-          <div class="time-box">
-            <div class="time" id="days">00</div>
-            <div class="label">DAYS</div>
-          </div>
-
-          <div class="time-box">
-            <div class="time" id="hours">00</div>
-            <div class="label">HOURS</div>
-          </div>
-
-          <div class="time-box">
-            <div class="time" id="minutes">00</div>
-            <div class="label">MINUTES</div>
-          </div>
-
-          <div class="time-box">
-            <div class="time" id="seconds">00</div>
-            <div class="label">SECONDS</div>
-          </div>
-
-        </div>
-
-        <div class="birthday-message" id="birthdayMessage">
-          🎉 HAPPY BIRTHDAY 🎉
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
-  <script>
-
-    // Set Birthday Date
-    const birthday = new Date("May 27, 2026 00:00:00").getTime();
-
-    const countdown = setInterval(() => {
-
-      const now = new Date().getTime();
-      const distance = birthday - now;
-
-      // Calculations
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-      // Display
-      document.getElementById("days").innerHTML = days;
-      document.getElementById("hours").innerHTML = hours;
-      document.getElementById("minutes").innerHTML = minutes;
-      document.getElementById("seconds").innerHTML = seconds;
-
-      // Birthday reached
-      if(distance < 0){
-
-        clearInterval(countdown);
-
-        document.querySelector(".countdown").style.display = "none";
-
-        document.getElementById("birthdayMessage").style.display = "block";
-      }
-
-    },1000);
-
-  </script>
+/* SET BIRTHDAY DATE */
+
+const birthday = new Date("May 27, 2026 00:00:00").getTime();
+
+const countdown = setInterval(() => {
+
+  const now = new Date().getTime();
+  const distance = birthday - now;
+
+  /* IF BIRTHDAY ARRIVES */
+
+  if(distance <= 0){
+
+    clearInterval(countdown);
+
+    document.querySelector(".countdown").style.display = "none";
+
+    document.getElementById("birthdayMessage").style.display = "block";
+
+    return;
+  }
+
+  /* TIME CALCULATIONS */
+
+  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+
+  const hours = Math.floor(
+    (distance % (1000 * 60 * 60 * 24)) /
+    (1000 * 60 * 60)
+  );
+
+  const minutes = Math.floor(
+    (distance % (1000 * 60 * 60)) /
+    (1000 * 60)
+  );
+
+  const seconds = Math.floor(
+    (distance % (1000 * 60)) / 1000
+  );
+
+  /* DISPLAY */
+
+  document.getElementById("days").innerHTML = String(days).padStart(2, '0');
+  document.getElementById("hours").innerHTML = String(hours).padStart(2, '0');
+  document.getElementById("minutes").innerHTML = String(minutes).padStart(2, '0');
+  document.getElementById("seconds").innerHTML = String(seconds).padStart(2, '0');
+
+},1000);
+
+</script>
 
 </body>
 </html>
