@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Future Birthday Countdown</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      height:100vh;
+      overflow:hidden;
+      font-family:'Orbitron', sans-serif;
+      background:#050816;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      position:relative;
+      color:white;
+    }
+
+    /* Animated Neon Background */
+    body::before{
+      content:"";
+      position:absolute;
+      width:700px;
+      height:700px;
+      background:radial-gradient(circle, #00f7ff33, transparent 70%);
+      animation: glow1 6s infinite alternate;
+      top:-200px;
+      left:-200px;
+    }
+
+    body::after{
+      content:"";
+      position:absolute;
+      width:700px;
+      height:700px;
+      background:radial-gradient(circle, #ff00ea33, transparent 70%);
+      animation: glow2 6s infinite alternate;
+      bottom:-200px;
+      right:-200px;
+    }
+
+    @keyframes glow1{
+      from{transform:translate(0,0);}
+      to{transform:translate(80px,50px);}
+    }
+
+    @keyframes glow2{
+      from{transform:translate(0,0);}
+      to{transform:translate(-80px,-50px);}
+    }
+
+    /* Glass Container */
+    .container{
+      width:90%;
+      max-width:1200px;
+      padding:40px;
+      border-radius:35px;
+      background:rgba(255,255,255,0.06);
+      backdrop-filter:blur(18px);
+      border:1px solid rgba(255,255,255,0.1);
+      box-shadow:
+        0 0 20px rgba(0,255,255,0.3),
+        0 0 60px rgba(255,0,255,0.15);
+      position:relative;
+      z-index:10;
+    }
+
+    .content{
+      display:flex;
+      gap:40px;
+      align-items:center;
+      justify-content:center;
+      flex-wrap:wrap;
+    }
+
+    /* Photo Holder */
+    .photo-card{
+      width:320px;
+      height:420px;
+      border-radius:30px;
+      padding:8px;
+      background:linear-gradient(135deg,#00f7ff,#ff00ea);
+      box-shadow:
+        0 0 25px #00f7ff,
+        0 0 40px #ff00ea;
+      animation: pulse 3s infinite;
+    }
+
+    @keyframes pulse{
+      0%{transform:scale(1);}
+      50%{transform:scale(1.02);}
+      100%{transform:scale(1);}
+    }
+
+    .photo-inner{
+      width:100%;
+      height:100%;
+      border-radius:25px;
+      overflow:hidden;
+      background:#111827;
+      position:relative;
+    }
+
+    .photo-inner img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    /* Replace with celebrant image */
+    .photo-placeholder{
+      width:100%;
+      height:100%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:#00f7ff;
+      font-size:1.2rem;
+      text-align:center;
+      padding:20px;
+    }
+
+    /* Countdown Section */
+    .countdown-section{
+      flex:1;
+      min-width:320px;
+    }
+
+    .title{
+      font-size:3.2rem;
+      margin-bottom:10px;
+      text-transform:uppercase;
+      line-height:1.1;
+      text-shadow:
+        0 0 10px #00f7ff,
+        0 0 20px #00f7ff;
+    }
+
+    .subtitle{
+      color:#d1d5db;
+      margin-bottom:35px;
+      font-size:1rem;
+      letter-spacing:2px;
+    }
+
+    .countdown{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:18px;
+    }
+
+    .time-box{
+      padding:25px 10px;
+      border-radius:22px;
+      background:rgba(255,255,255,0.07);
+      border:1px solid rgba(255,255,255,0.08);
+      text-align:center;
+      transition:0.3s ease;
+      box-shadow:
+        inset 0 0 10px rgba(255,255,255,0.05),
+        0 0 15px rgba(0,255,255,0.08);
+    }
+
+    .time-box:hover{
+      transform:translateY(-6px);
+      box-shadow:
+        0 0 20px rgba(0,255,255,0.4),
+        0 0 30px rgba(255,0,255,0.2);
+    }
+
+    .time{
+      font-size:2.5rem;
+      font-weight:700;
+      color:#fff;
+      text-shadow:
+        0 0 10px #00f7ff,
+        0 0 20px #ff00ea;
+    }
+
+    .label{
+      margin-top:10px;
+      font-size:0.85rem;
+      letter-spacing:2px;
+      color:#cbd5e1;
+    }
+
+    .birthday-message{
+      margin-top:40px;
+      font-size:2rem;
+      color:#fff;
+      display:none;
+      text-shadow:
+        0 0 10px #00f7ff,
+        0 0 20px #ff00ea;
+    }
+
+    /* Responsive */
+    @media(max-width:900px){
+
+      .content{
+        flex-direction:column;
+      }
+
+      .countdown{
+        grid-template-columns:repeat(2,1fr);
+      }
+
+      .title{
+        font-size:2.4rem;
+        text-align:center;
+      }
+
+      .subtitle{
+        text-align:center;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <div class="content">
+
+      <!-- PHOTO HOLDER -->
+      <div class="photo-card">
+        <div class="photo-inner">
+
+          <!-- PUT IMAGE HERE -->
+          <!-- Replace celebrant.jpg with your image -->
+
+          <img src="celebrant.jpg" alt="Birthday Celebrant">
+
+          <!-- If no image use this -->
+          <!--
+          <div class="photo-placeholder">
+            ADD<br>CELEBRANT<br>PHOTO
+          </div>
+          -->
+
+        </div>
+      </div>
+
+      <!-- COUNTDOWN -->
+      <div class="countdown-section">
+
+        <h1 class="title">
+          Birthday Countdown 🎂
+        </h1>
+
+        <p class="subtitle">
+          COUNTING DOWN TO MAY 27
+        </p>
+
+        <div class="countdown">
+
+          <div class="time-box">
+            <div class="time" id="days">00</div>
+            <div class="label">DAYS</div>
+          </div>
+
+          <div class="time-box">
+            <div class="time" id="hours">00</div>
+            <div class="label">HOURS</div>
+          </div>
+
+          <div class="time-box">
+            <div class="time" id="minutes">00</div>
+            <div class="label">MINUTES</div>
+          </div>
+
+          <div class="time-box">
+            <div class="time" id="seconds">00</div>
+            <div class="label">SECONDS</div>
+          </div>
+
+        </div>
+
+        <div class="birthday-message" id="birthdayMessage">
+          🎉 HAPPY BIRTHDAY 🎉
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <script>
+
+    // Set Birthday Date
+    const birthday = new Date("May 27, 2026 00:00:00").getTime();
+
+    const countdown = setInterval(() => {
+
+      const now = new Date().getTime();
+      const distance = birthday - now;
+
+      // Calculations
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      // Display
+      document.getElementById("days").innerHTML = days;
+      document.getElementById("hours").innerHTML = hours;
+      document.getElementById("minutes").innerHTML = minutes;
+      document.getElementById("seconds").innerHTML = seconds;
+
+      // Birthday reached
+      if(distance < 0){
+
+        clearInterval(countdown);
+
+        document.querySelector(".countdown").style.display = "none";
+
+        document.getElementById("birthdayMessage").style.display = "block";
+      }
+
+    },1000);
+
+  </script>
+
+</body>
+</html>
